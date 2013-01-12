@@ -26,7 +26,7 @@ The design goals of the Integration Service are to:
 * Help reduce versioning conflicts by forcing all communication through schema and contracts which are designed solely for the purpose of integration and thus preventing tight coupling between individual systems.  Part of this would come under the 'Boundaries are Explicit' core tenet of SOA.
 * Design the system in such a way that it is easy to test to help ensure that risks associated with change and release management can be minimized.
 
-** Designing and Implementing Data Contracts
+## Designing and Implementing Data Contracts
 
 When designing an integration service, the first step is to clearly identify and to document all of the individual points where integration will take place.  This is usually achieved by sitting down with business analysts and the architects of the systems that you will be integrating and to discuss the nature of the interaction and to ultimately, design and agree on a set of data contracts to which the interaction will conform.
 
@@ -68,10 +68,10 @@ After wrapping the data contracts in messages, the following contracts serve as 
         public List<ProductName> ProductNames;
     }
 
-** Mapping Data between systems
+## Mapping Data between systems
 
 
-** Designing and Implementing Integration Processes
+## Designing and Implementing Integration Processes
 
 
 
