@@ -18,6 +18,8 @@ The architecture is separated out into 3 primary domains
 2.  CRM Application - Implemented a simple console application, which represents a system procured by your company and which needs to integrate with existing back-end LOB systems.
 3.  Integration Service - A Web Service that allows the CRM client application to integrate with the LOB applications
 
+![System dependencies](DependencyDiagram.PNG)
+
 ## Design Goals
 
 The design goals of the Integration Service are to:
