@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{90B152BB-F2EB-436E-8DA5-EC2A64857BEF}</ProjectGuid>
+    <ProjectGuid>{A6F0A26F-041B-4437-8019-6EAA436663C8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Company.IntegrationService</RootNamespace>
-    <AssemblyName>Company.IntegrationService</AssemblyName>
+    <RootNamespace>Company.IntegrationService.BusinessLayer</RootNamespace>
+    <AssemblyName>Company.IntegrationService.BusinessLayer</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,20 +40,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationBootstrapper.cs" />
+    <Compile Include="ProcessComponents\Loans\CompleteProcessMappings.cs" />
+    <Compile Include="ProcessComponents\Loans\IsEligibleProcessMapping.cs" />
+    <Compile Include="ProcessComponents\Loans\IsEligibleProcess.cs" />
+    <Compile Include="ProcessComponents\Loans\CompleteProcess.cs" />
+    <Compile Include="ProcessComponents\Loans\GetProductsProcess.cs" />
+    <Compile Include="ProcessComponents\IProcessComponent.cs" />
+    <Compile Include="Container.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceContracts\ILoansIntegrationService.cs" />
-    <Compile Include="WebServices\LoansIntegrationServiceWithComponents.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Company.IntegrationService.BusinessLayer\Company.IntegrationService.BusinessLayer.csproj">
-      <Project>{A6F0A26F-041B-4437-8019-6EAA436663C8}</Project>
-      <Name>Company.IntegrationService.BusinessLayer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Company.IntegrationService.Contracts\Company.IntegrationService.Contracts.csproj">
       <Project>{4F2AF4B9-B5E4-4FC2-A16C-DBDBECEDF49D}</Project>
       <Name>Company.IntegrationService.Contracts</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Company.LOB.LoanManagement\Company.LOB.LoanManagement.csproj">
+      <Project>{360A8A44-417F-4D67-90E7-0A2927DDB419}</Project>
+      <Name>Company.LOB.LoanManagement</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Company.LOB.ProductManagement\Company.LOB.ProductManagement.csproj">
+      <Project>{BED847C9-EB89-4953-B1D5-4B5DF619EDEE}</Project>
+      <Name>Company.LOB.ProductManagement</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="ProcessComponents\Loans\Readme.txt" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

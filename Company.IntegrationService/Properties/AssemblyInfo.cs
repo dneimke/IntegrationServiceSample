@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Company.InegrationService")]
+[assembly: AssemblyTitle("Company.IntegrationService.BusinessLayer")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Company.InegrationService")]
+[assembly: AssemblyProduct("Company.IntegrationService.BusinessLayer")]
 [assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("76c8da30-d6ed-4218-bdb0-22b8311ad7bb")]
+[assembly: Guid("865820db-77b2-4ca7-87ba-abb9c6e53c4d")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -45,6 +45,7 @@
     <Compile Include="DataContracts\ProductNames.cs" />
     <Compile Include="DataContracts\ProductQuery.cs" />
     <Compile Include="DataContracts\ResultantLoan.cs" />
+    <Compile Include="ILoansIntegrationService.cs" />
     <Compile Include="MessageContracts\CompleteRequest.cs" />
     <Compile Include="MessageContracts\CompleteResponse.cs" />
     <Compile Include="MessageContracts\GetProductsRequest.cs" />
