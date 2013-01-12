@@ -26,17 +26,18 @@ The design goals of the Integration Service are to:
 * Help reduce versioning conflicts by forcing all communication through schema and contracts which are designed solely for the purpose of integration and thus preventing tight coupling between individual systems.  Part of this would come under the 'Boundaries are Explicit' core tenet of SOA.
 * Design the system in such a way that it is easy to test to help ensure that risks associated with change and release management can be minimized.
 
-## Designing and Implementing Data Contracts
+## How Service Operations are formed
 
 When designing an integration service, the first step is to clearly identify and to document all of the individual points where integration will take place.  This is usually achieved by sitting down with business analysts and the architects of the systems that you will be integrating and to discuss the nature of the interaction and to ultimately, design and agree on a set of data contracts to which the interaction will conform.
 
 In our example, this might be initiated by an engineer on the CRM team saying that, when a user clicks a button on a user interface, they will need to make a call to get a list of products that are available so that they can populate them in a choice list on a dialog that they intend to show.
 
-Good, we have our first operation, let's call this operation 'GetProducts'.
+At this point, you have your first operation, let's call this operation 'GetProducts'.
 
-    GetProductsResponse GetProducts(GetProductsRequest request);
 
-Agreements must also be made about the data to be exchanged in order to to fulfil the requirements of the request  from the CRM system.  In the sample, it has been agreed that the request from the CRM system can specify a filter clause to specify what types of records it wants returned.  
+## Designing and Implementing Data Contracts
+
+Agreements must be made about the data to be exchanged in order to to fulfil the requirements of the request  from the CRM system.  In the sample, it has been agreed that the request from the CRM system can specify a filter clause to specify what types of records it wants returned.  
 
     public enum ProductFilterClause
     {
@@ -67,6 +68,13 @@ After wrapping the data contracts in messages, the following contracts serve as 
     {
         public List<ProductName> ProductNames;
     }
+
+In its complete form, this is be represented by the following contract specifcation for the GetProducts operation:
+
+    
+    GetProductsResponse GetProducts(GetProductsRequest request);
+
+
 
 ## Mapping Data between systems
 
