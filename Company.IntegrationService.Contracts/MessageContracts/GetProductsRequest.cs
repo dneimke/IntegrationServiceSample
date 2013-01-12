@@ -8,6 +8,6 @@ namespace Company.IntegrationService.Contracts.MessageContracts
 {
     public class GetProductsRequest
     {
-        public ProductQuery RequestedProducts;
+        public ProductFilterClause Filter;
     }
 }

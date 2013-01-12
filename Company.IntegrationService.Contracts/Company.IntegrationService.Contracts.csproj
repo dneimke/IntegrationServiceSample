@@ -42,8 +42,8 @@
   <ItemGroup>
     <Compile Include="DataContracts\Applicant.cs" />
     <Compile Include="DataContracts\LoanApplication.cs" />
-    <Compile Include="DataContracts\ProductNames.cs" />
-    <Compile Include="DataContracts\ProductQuery.cs" />
+    <Compile Include="DataContracts\ProductName.cs" />
+    <Compile Include="DataContracts\ProductFilterClause.cs" />
     <Compile Include="DataContracts\ResultantLoan.cs" />
     <Compile Include="ILoansIntegrationService.cs" />
     <Compile Include="MessageContracts\CompleteRequest.cs" />

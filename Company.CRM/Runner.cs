@@ -3,7 +3,6 @@ using Company.IntegrationService.Contracts;
 using Company.IntegrationService.Contracts.DataContracts;
 using Company.IntegrationService.Contracts.MessageContracts;
 using Company.IntegrationService.WebService;
-using Company.CRM.Examples;
 
 namespace Company.CRM
 {
@@ -17,74 +16,24 @@ namespace Company.CRM
         }
 
 
-        internal void RunSimpleFailExample()
+        internal void RunGetProductsRequest(ProductFilterClause filter)
         {
-            var application = new SimpleApplication();
+            Console.WriteLine("----------- Calling GetProducts with a filter of {0}. ------------", filter.ToString());
 
-            var isEligibleRequest = CreateSimpleEligibilityRequest(application);
-            var response = service.IsEligible(isEligibleRequest);
-
-            if (response.Eligible == true)
-            {
-                var completeRequest = CreateSimpleCompleteRequest(application, false);
-                ProcessRequest(completeRequest);
-            }
-        }
-
-        internal void RunSimpleSuccessExample()
-        {
-            var application = new SimpleApplication();
-
-            var isEligibleRequest = CreateSimpleEligibilityRequest(application);
-            var response = service.IsEligible(isEligibleRequest);
-
-            if (response.Eligible == true)
-            {
-                var completeRequest = CreateSimpleCompleteRequest(application, true);
-                ProcessRequest(completeRequest);
-            }
-        }
-
-        internal void RunGetProductsExample()
-        {
             var request = new GetProductsRequest
             {
-                RequestedProducts = ProductQuery.All
+                Filter = filter
             };
 
             var response = service.GetProducts(request);
 
             foreach (var product in response.ProductNames)
             {
-                Console.WriteLine(product);
+                Console.WriteLine("Retrieved {1} which has an Id of {0}", product.Id, product.Name);
             }
-        }
 
-        private void ProcessRequest(CompleteRequest completeRequest)
-        {
-            var result = service.Complete(completeRequest);
-            Console.WriteLine("Result {0}", result.LoanApplication.IsApproved);
-            Console.WriteLine("Reason: {0}", result.LoanApplication.ApprovalMessage);
+            Console.WriteLine();
         }
-
-        private IsEligibleRequest CreateSimpleEligibilityRequest(Application application)
-        {
-            return new IsEligibleRequest
-            {
-                Applicant = new Applicant { Name = application.CustomerName },
-                Product = new ProductName(application.ProductName)
-            };
-        }
-
-        private CompleteRequest CreateSimpleCompleteRequest(Application application, bool shouldSucceed)
-        {
-            return new CompleteRequest
-            {
-                ShouldSucceed = shouldSucceed,
-                Applicant = new Applicant { Name = application.CustomerName }
-            };
-        }
-
 
     }
 }

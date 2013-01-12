@@ -8,6 +8,6 @@ namespace Company.IntegrationService.Contracts.MessageContracts
 {
     public class GetProductsResponse
     {
-        public List<string> ProductNames;
+        public IEnumerable<ProductName> ProductNames;
     }
 }

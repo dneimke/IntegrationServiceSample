@@ -1,4 +1,5 @@
 ﻿using System;
+using Company.IntegrationService.Contracts.DataContracts;
 
 namespace Company.CRM
 {
@@ -7,10 +8,10 @@ namespace Company.CRM
         static void Main()
         {
             var runner = new Runner();
-            
-            runner.RunSimpleFailExample();
-            runner.RunSimpleSuccessExample();
-            runner.RunGetProductsExample();
+
+            runner.RunGetProductsRequest(ProductFilterClause.All);
+            runner.RunGetProductsRequest(ProductFilterClause.Some);
+            runner.RunGetProductsRequest(ProductFilterClause.None);
 
             Console.ReadLine();
         }
