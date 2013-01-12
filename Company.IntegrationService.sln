@@ -13,12 +13,20 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Company.IntegrationService.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A6AFB08A-9A8C-4A11-B97D-3E86F78723C4}"
 	ProjectSection(SolutionItems) = preProject
+		Company.IntegrationService.vsmdi = Company.IntegrationService.vsmdi
 		DependencyDiagram.dgml = DependencyDiagram.dgml
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Company.IntegrationService", "Company.IntegrationService\Company.IntegrationService.csproj", "{90B152BB-F2EB-436E-8DA5-EC2A64857BEF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Company.IntegrationService.BusinessLayer.Tests", "Company.IntegrationService.BusinessLayer.Tests\Company.IntegrationService.BusinessLayer.Tests.csproj", "{00BB59D1-D920-45F7-B005-95246A8F98F7}"
+EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Company.IntegrationService.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -88,6 +96,16 @@ Global
 		{90B152BB-F2EB-436E-8DA5-EC2A64857BEF}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{90B152BB-F2EB-436E-8DA5-EC2A64857BEF}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{90B152BB-F2EB-436E-8DA5-EC2A64857BEF}.Release|x86.ActiveCfg = Release|Any CPU
+		{00BB59D1-D920-45F7-B005-95246A8F98F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00BB59D1-D920-45F7-B005-95246A8F98F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00BB59D1-D920-45F7-B005-95246A8F98F7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{00BB59D1-D920-45F7-B005-95246A8F98F7}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{00BB59D1-D920-45F7-B005-95246A8F98F7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{00BB59D1-D920-45F7-B005-95246A8F98F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00BB59D1-D920-45F7-B005-95246A8F98F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00BB59D1-D920-45F7-B005-95246A8F98F7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{00BB59D1-D920-45F7-B005-95246A8F98F7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{00BB59D1-D920-45F7-B005-95246A8F98F7}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
