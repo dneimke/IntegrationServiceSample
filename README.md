@@ -46,6 +46,8 @@ Agreements must be made about the data to be exchanged in order to to fulfil the
         None
     }
 
+An agreement is also reached about the definition of data which represents each product in the result list.  In this case it is agreed that a data structure will be returned for each product which contains the product Id in the products system and also its name.
+
     public class ProductName
     {
         public int Id;
