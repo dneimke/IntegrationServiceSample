@@ -57,13 +57,13 @@
     <Compile Include="Runner.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Company.InegrationService\Company.IntegrationService.csproj">
-      <Project>{90B152BB-F2EB-436E-8DA5-EC2A64857BEF}</Project>
-      <Name>Company.IntegrationService</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Company.IntegrationService.Contracts\Company.IntegrationService.Contracts.csproj">
       <Project>{4F2AF4B9-B5E4-4FC2-A16C-DBDBECEDF49D}</Project>
       <Name>Company.IntegrationService.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Company.IntegrationService\Company.IntegrationService.csproj">
+      <Project>{90B152BB-F2EB-436E-8DA5-EC2A64857BEF}</Project>
+      <Name>Company.IntegrationService</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
