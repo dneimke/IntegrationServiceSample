@@ -18,7 +18,8 @@ namespace Company.IntegrationService.ProcessComponents.Loans
         public IList<DC.ProductName> MapFromProductIdentifierListToProductNameList(IEnumerable<ProductIdentifier> productList)
         {
             var response = new GetProductsResponse();
-            var productNames = from p in productList select new DC.ProductName(p.Id, p.Name);
+            var productNames = from p in productList 
+                               select new DC.ProductName { Id = p.Id, Name = p.Name };
             return productNames.ToList();
         }
     }

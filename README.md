@@ -79,8 +79,66 @@ In its complete form, this is be represented by the following contract specifcat
     GetProductsResponse GetProducts(GetProductsRequest request);
 
 
-
 ## Mapping Data between systems
+
+In designing the communications protocol, the next step is to trace the data from the request, through to the back end system, and then back out through the response - a complete data roundtrip so to speak.
+
+![Mapping strategy](https://github.com/dneimke/IntegrationServiceSample/raw/master/Mapping.PNG)
+
+As shown in the diagram above, at the integration boundaries, every piece of data must be uniquely mapped according to naming and data type.  These should be developed and maintained as mapping tables in a spreadsheet or some such record.
+
+Architecturally, these should be implemented in a maintainable and testable manner.  Within the reference application, each set of mappings is implemented as a class.  The Mappings class for the GetProducts operation only contains 1 mapping because the initial call through to the product system does not take any parameter arguments.
+
+    public class GetProductsProcessMappings
+    {
+        /// <summary>
+        /// Maps from an <see cref="IEnumerable<ProductIdentifier>"/> to a <see cref="GetProductsResponse"/>
+        /// </summary>
+        /// <param name="productList">The list of Product Management Products to map from</param>
+        /// <returns>A GetProductsResponse message contract</returns>
+        public IList<DC.ProductName> MapFromProductIdentifierListToProductNameList(IEnumerable<ProductIdentifier> productList)
+        {
+            var response = new GetProductsResponse();
+            var productNames = from p in productList 
+                               select new DC.ProductName { Id = p.Id, Name = p.Name };
+            return productNames.ToList();
+        }
+    }
+
+In the case of the above mapping, it is a straight mapping from both name and data type - but there might be other filters, lookups, translations, agreed defaults, etc. that need to be catered for to correctly implement integration.
+
+Each Mappings classes is then be tested against agreed translation rules and any other agreed rules.  
+
+In the reference sample, there is one test Fixture for each Mappings class, but this may be further refined to one Fixture per mapping rule.
+
+    [TestClass]
+    public class GetProductsOperationMappingFixture
+    {
+        GetProductsProcessMappings mappings;
+
+        [TestInitialize]
+        public void Setup()
+        {
+            mappings = new GetProductsProcessMappings();
+        }
+
+        [TestMethod]
+        public void ShouldMapFromProductIdentifierListToProductNameList()
+        {
+            // Arrange
+            var request = new List<ProductIdentifier>
+            {
+                new ProductIdentifier { Id = 1, Name = "First" }
+            };
+
+            // Act
+            var result = mappings.MapFromProductIdentifierListToProductNameList(request);
+        
+            // Assert
+            Assert.AreEqual("First", result[0].Name);
+            Assert.AreEqual(1, result[0].Id);
+        }
+    }
 
 
 ## Designing and Implementing Integration Processes
