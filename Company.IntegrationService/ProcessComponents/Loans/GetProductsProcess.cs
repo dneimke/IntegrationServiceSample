@@ -9,7 +9,7 @@ namespace Company.IntegrationService.ProcessComponents.Loans
     public class GetProductsProcess : IProcessComponent<GetProductsRequest, GetProductsResponse>
     {
         private readonly IProductsClientProxy productsClient = null;
-        private readonly GetProductsProcessMappings mappings;
+        private readonly GetProductsProcessMappings mappings = new GetProductsProcessMappings();
 
         public GetProductsProcess(IProductsClientProxy products)
         {
@@ -17,7 +17,6 @@ namespace Company.IntegrationService.ProcessComponents.Loans
                 throw new ArgumentNullException("products");
 
             this.productsClient = products;
-            mappings = new GetProductsProcessMappings();
         }
 
         public GetProductsResponse Process(GetProductsRequest request)
@@ -29,18 +28,23 @@ namespace Company.IntegrationService.ProcessComponents.Loans
 
             var productList = productsClient.GetAllProducts();
 
-            var productNames = mappings.MapFromProductIdentifierListToProductNameList(productList);
+            var productNames = mappings.ProductIdentifierListToProductNameListMap.Map(productList);
 
-            if (request.Filter == ProductFilterClause.Some)
-            {
-                // A silly business rule to highlight something we might do as a step...
-                // randomly remove the first product name is ProductFilterClause.Some was selected
-                productNames.Remove(productNames[0]); 
-            }
+            ApplyFilterClause(request, productNames);
 
             response.ProductNames = productNames;
             
             return response;
+        }
+
+        private static void ApplyFilterClause(GetProductsRequest request, IList<ProductName> productNames)
+        {
+            if (request.Filter == ProductFilterClause.Some)
+            {
+                // A silly business rule to highlight something we might do as a step...
+                // randomly remove the first product name is ProductFilterClause.Some was selected
+                productNames.Remove(productNames[0]);
+            }
         }
 
     }

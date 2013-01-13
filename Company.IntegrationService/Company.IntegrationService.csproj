@@ -41,15 +41,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationBootstrapper.cs" />
-    <Compile Include="ProcessComponents\Loans\CompleteProcessMappings.cs" />
-    <Compile Include="ProcessComponents\Loans\GetProductsProcessMappings.cs" />
+    <Compile Include="IMappingFunction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mappings\Loans\ApplicantToCustomerAccountMap.cs" />
+    <Compile Include="Mappings\Loans\BooleanToIsEligibleResponseMap.cs" />
+    <Compile Include="Mappings\Loans\ProductIdentifierListToProductNameListMap.cs" />
+    <Compile Include="ProcessComponents\Loans\CompleteProcessMappings.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProcessComponents\Loans\GetProductsProcessMappings.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ProcessComponents\Loans\IsEligibleProcessMapping.cs" />
     <Compile Include="ProcessComponents\Loans\IsEligibleProcess.cs" />
     <Compile Include="ProcessComponents\Loans\CompleteProcess.cs" />
     <Compile Include="ProcessComponents\Loans\GetProductsProcess.cs" />
-    <Compile Include="ProcessComponents\IProcessComponent.cs" />
+    <Compile Include="IProcessComponent.cs" />
     <Compile Include="Container.cs" />
-    <Compile Include="ProcessComponents\Mappings\MapCompleteRequestToCustomerLoans.cs" />
+    <Compile Include="Mappings\Loans\CompleteRequestToCustomerLoansMap.cs" />
+    <Compile Include="Mappings\Loans\CompleteResponseFromInputsMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

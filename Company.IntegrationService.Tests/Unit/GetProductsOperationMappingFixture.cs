@@ -27,7 +27,7 @@ namespace Company.IntegrationService.Tests.Unit
             };
 
             // Act
-            var result = mappings.MapFromProductIdentifierListToProductNameList(request);
+            var result = mappings.ProductIdentifierListToProductNameListMap.Map(request);
         
             // Assert
             Assert.AreEqual("First", result[0].Name);
