@@ -57,7 +57,7 @@ An agreement is also reached about the definition of data which represents each 
     }
 
 
-The data contracts are then wrapped in message contracts which act as boundaries at which we interception can take place to apply consistent policy and infrastructure rules on all incoming and outgoing communication.
+The data contracts are then wrapped in message contracts which act as boundaries at which interception can take place to apply consistent policy and infrastructure rules on all incoming and outgoing communication.
 
 
 After wrapping the data contracts in messages, the following contracts serve as the agreed communication protocol for requesting products.
@@ -140,7 +140,7 @@ Architecturally, each set of mappings is implemented as a class which helps to m
 
 In the case of the above mapping, it is a straight mapping from both name and data type - but there might be other filters, lookups, translations, agreed defaults, etc. that need to be catered for to correctly implement integration.
 
-Each Mappings classes is then be tested against agreed translation rules and any other agreed rules.  
+Each Mappings class is then tested against agreed translation and processing rules.  
 
 In the reference sample, there is one test Fixture for each Mappings class, but this may be further refined to one Fixture per mapping rule.
 

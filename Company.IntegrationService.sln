@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Company.IntegrationService", "Company.IntegrationService\Company.IntegrationService.csproj", "{A6F0A26F-041B-4437-8019-6EAA436663C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Company.IntegrationService.BusinessLayer.Tests", "Company.IntegrationService.Tests\Company.IntegrationService.BusinessLayer.Tests.csproj", "{00BB59D1-D920-45F7-B005-95246A8F98F7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Company.IntegrationService.Tests", "Company.IntegrationService.Tests\Company.IntegrationService.Tests.csproj", "{00BB59D1-D920-45F7-B005-95246A8F98F7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Company.IntegrationService.WebService", "Company.IntegrationService.WebService\Company.IntegrationService.WebService.csproj", "{90B152BB-F2EB-436E-8DA5-EC2A64857BEF}"
 EndProject

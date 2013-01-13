@@ -2,7 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Company.IntegrationService.ProcessComponents.Loans;
 
-namespace Company.IntegrationService.BusinessLayer.Tests.Unit
+namespace Company.IntegrationService.Tests.Unit
 {
     [TestClass]
     public class CompleteOperationMappingFixture

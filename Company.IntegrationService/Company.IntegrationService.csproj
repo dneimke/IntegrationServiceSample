@@ -49,6 +49,7 @@
     <Compile Include="ProcessComponents\Loans\GetProductsProcess.cs" />
     <Compile Include="ProcessComponents\IProcessComponent.cs" />
     <Compile Include="Container.cs" />
+    <Compile Include="ProcessComponents\Mappings\MapCompleteRequestToCustomerLoans.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
