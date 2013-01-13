@@ -87,16 +87,15 @@ In designing the communications protocol, the next step is to trace the data fro
 
 As shown in the diagram above, at the integration boundaries, every piece of data must be uniquely mapped according to naming and data type.  These should be developed and maintained as mapping tables in a spreadsheet or some such record.
 
-> Mapping dictionary for GetProducts
-> ----------------------------------
-> Operation Name: GetProducts
-> Operation Step: Response from call to GetProducts method
+> ### Mapping dictionary for GetProducts
+> **Operation Name**: GetProducts
+> **Operation Step**: Response from call to GetProducts method
 > 
-> Source system: LOB.Products 
-> Target system: IntegrationService
+> **Source system**: LOB.Products 
+> **Target system**: IntegrationService
 > 
-> Source data type: Company.LOB.ProductManagement.Entities.ProductIdentifier
-> Target data type: Company.IntegrationService.Contracts.DataContracts.ProductName
+> **Source data type**: Company.LOB.ProductManagement.Entities.ProductIdentifier
+> **Target data type**: Company.IntegrationService.Contracts.DataContracts.ProductName
 >  
 > <table>
 >   <tr>
