@@ -83,15 +83,15 @@ In its complete form, this is be represented by the following contract specifcat
 
 Mappers provide a way to have communications between two subsystems that still need to stay ignorant of each other. [Fowler] [1] 
 
-In the case of this appilication, the Mapping layer provides the mapping that allows us to separate the IntegrationService from any domain objects that are exposed through the BusinessLayer.  This is done by sharing the data and message contracts between the business layer and the Services layer.
+In the case of this application, the Mapping layer provides us with a way of separating the IntegrationService from any domain objects that are exposed through the BusinessLayer.  This is done by sharing the data and message contracts between the business layer and the Services layer.
 
-The pattern for communication layer and the business layer is established via the IProcessRequestComponent interface which takes a Message contract in, and returns a processed result as a Message contract.
+The pattern for communication layer and the business layer is established via the IProcessComponent interface which takes a Message contract in, and returns a processed result as a Message contract.
 
-In designing the communications protocol, the next step is to trace the data from the request, through to the back end system, and then back out through the response - a complete data roundtrip so to speak.
+In designing the communications protocol, data is traced from the request, through to the back end system, and then back out through the response - a complete data roundtrip so to speak.
 
 ![Mapping strategy](https://github.com/dneimke/IntegrationServiceSample/raw/master/Mapping.PNG)
 
-As shown in the diagram above, at the integration boundaries, every piece of data must be uniquely mapped according to naming and data type.  These should be developed and maintained as mapping tables in a spreadsheet or some such record.
+At the integration boundaries, every piece of data must be uniquely mapped according to naming and data type and recorded in an appropriate mapping dictionary.
 
 > ### Mapping dictionary for GetProducts
 > **Operation Name**: GetProducts
@@ -115,7 +115,7 @@ As shown in the diagram above, at the integration boundaries, every piece of dat
 >   </tr>
 > </table>
 
-Only 1 mapping is defined for the operation because the initial call to the Product System does not take any parameter arguments.
+Only 1 mapping is defined for the operation shown because the initial call to the Product System does not take any parameter arguments.
 
 Architecturally, each set of mappings is implemented as a class which helps to make them easier to maintain and test.
 
