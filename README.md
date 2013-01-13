@@ -205,25 +205,7 @@ The following implementation of this interface exists for the GetProducts operat
 
         public GetProductsResponse Process(GetProductsRequest request)
         {
-            var response = new GetProductsResponse { ProductNames = new List<ProductName>() };
-            
-            if (request.Filter == ProductFilterClause.None)
-                return response;
-
-            var productList = productsClient.GetAllProducts();
-
-            var productNames = mappings.MapFromProductIdentifierListToProductNameList(productList);
-
-            if (request.Filter == ProductFilterClause.Some)
-            {
-                // A silly business rule to highlight something we might do as a step...
-                // randomly remove the first product name is ProductFilterClause.Some was selected
-                productNames.Remove(productNames[0]); 
-            }
-
-            response.ProductNames = productNames;
-            
-            return response;
+            /* process steps abbreviated abbreviated */ 
         }
     }
 
