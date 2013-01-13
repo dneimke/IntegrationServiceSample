@@ -11,10 +11,13 @@ namespace Company.IntegrationService.ProcessComponents.Loans
     public class GetProductsProcessMappings
     {
         /// <summary>
-        /// Maps from an <see cref="IEnumerable<ProductIdentifier>"/> to a <see cref="GetProductsResponse"/>
+        /// Maps from an <see cref="IEnumerable"/> of Product Management <see cref="ProductIdentifier"/> 
+        /// to an <see cref="IList"/> of <see cref="ProductName"/> items.
         /// </summary>
-        /// <param name="productList">The list of Product Management Products to map from</param>
-        /// <returns>A GetProductsResponse message contract</returns>
+        /// <param name="productList">An <see cref="IEnumerable"/> of Product Management 
+        /// <see cref="ProductIdentifier"/> items to map from
+        /// </param>
+        /// <returns>An <see cref="IList"/> of <see cref="ProductName"/> data contract types.</returns>
         public IList<DC.ProductName> MapFromProductIdentifierListToProductNameList(IEnumerable<ProductIdentifier> productList)
         {
             var response = new GetProductsResponse();
