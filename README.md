@@ -111,7 +111,7 @@ As shown in the diagram above, at the integration boundaries, every piece of dat
 
 Only 1 mapping is defined for the operation because the initial call to the Product System does not take any parameter arguments.
 
-Architecturally, each set of mappings is implemented as a class which helps to make them maintainable and testable.
+Architecturally, each set of mappings is implemented as a class which helps to make them easier to maintain and test.
 
     public class GetProductsProcessMappings
     {
@@ -170,5 +170,57 @@ In the reference sample, there is one test Fixture for each Mappings class, but 
 
 ## Designing and Implementing Integration Processes
 
+Each individual integration process is implemented as a class which helps to make them easier to maintain and test.  The responsibilities of an integration process class are:
 
+* It must only expose Data/Message contracts at its public boundary
+* It should maintain a reference to all of the dependencies that it requires and it should receive those dependencies via dependency injection
+* It is responsible for orchestration of the steps that are required to carry out the process in their correct order
 
+Integration process classes are governed by the IProcessComponent which helps to enforce these constraints as it is the only visibility that the calling WebService should have over access to processes - e.g. creating of the processing class would ultimately be delegated to a Factory which looked at incoming requests and outgoing response message types and mapped them to an underlying implementation.
+
+The IProcessComponent interface is as follows:
+
+    public interface IProcessComponent<TIn, TOut>
+    {
+        TOut Process(TIn request);
+    }
+
+The following implementation of this interface exists for the GetProducts operation.
+
+    public class GetProductsProcess : IProcessComponent<GetProductsRequest, GetProductsResponse>
+    {
+        private readonly IProductsClientProxy productsClient = null;
+        private readonly GetProductsProcessMappings mappings;
+
+        public GetProductsProcess(IProductsClientProxy products) 
+		{ 
+		    /* ctor implementation abbreviated */ 
+		}
+
+        public GetProductsResponse Process(GetProductsRequest request)
+        {
+            var response = new GetProductsResponse { ProductNames = new List<ProductName>() };
+            
+            if (request.Filter == ProductFilterClause.None)
+                return response;
+
+            var productList = productsClient.GetAllProducts();
+
+            var productNames = mappings.MapFromProductIdentifierListToProductNameList(productList);
+
+            if (request.Filter == ProductFilterClause.Some)
+            {
+                // A silly business rule to highlight something we might do as a step...
+                // randomly remove the first product name is ProductFilterClause.Some was selected
+                productNames.Remove(productNames[0]); 
+            }
+
+            response.ProductNames = productNames;
+            
+            return response;
+        }
+    }
+
+This implementation class implements the correct signature of Request->Reponse types, it receives its dependencies via dependency injection, and it then processes the operation behind the Process method of the interface.
+
+## Dependency Management

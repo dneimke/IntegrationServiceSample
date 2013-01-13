@@ -6,10 +6,8 @@ using System.Collections.Generic;
 
 namespace Company.IntegrationService.ProcessComponents.Loans
 {
-    // 1 component per operation
     public class GetProductsProcess : IProcessComponent<GetProductsRequest, GetProductsResponse>
     {
-        // Manages all of its own dependencies
         private readonly IProductsClientProxy productsClient = null;
         private readonly GetProductsProcessMappings mappings;
 
@@ -22,7 +20,6 @@ namespace Company.IntegrationService.ProcessComponents.Loans
             mappings = new GetProductsProcessMappings();
         }
 
-        // The process operation runs all of the steps to process the request
         public GetProductsResponse Process(GetProductsRequest request)
         {
             var response = new GetProductsResponse { ProductNames = new List<ProductName>() };
@@ -36,7 +33,9 @@ namespace Company.IntegrationService.ProcessComponents.Loans
 
             if (request.Filter == ProductFilterClause.Some)
             {
-                productNames.Remove(productNames[0]); // randomly remove the first product name is ProductFilterClause.Some was selected
+                // A silly business rule to highlight something we might do as a step...
+                // randomly remove the first product name is ProductFilterClause.Some was selected
+                productNames.Remove(productNames[0]); 
             }
 
             response.ProductNames = productNames;
