@@ -87,7 +87,32 @@ In designing the communications protocol, the next step is to trace the data fro
 
 As shown in the diagram above, at the integration boundaries, every piece of data must be uniquely mapped according to naming and data type.  These should be developed and maintained as mapping tables in a spreadsheet or some such record.
 
-Architecturally, these should be implemented in a maintainable and testable manner.  Within the reference application, each set of mappings is implemented as a class.  The Mappings class for the GetProducts operation only contains 1 mapping because the initial call through to the product system does not take any parameter arguments.
+Mapping dictionary for GetProducts
+----------------------------------
+Operation Name: GetProducts
+Operation Step: Response from call to GetProducts method
+
+Source system: LOB.Products 
+Target system: IntegrationService
+
+Source data type: Company.LOB.ProductManagement.Entities.ProductIdentifier
+Target data type: Company.IntegrationService.Contracts.DataContracts.ProductName
+  
+<table>
+  <tr>
+    <th>Source Member</th> <th>Source Type</th> <th>Target Member</th> <th>Target Type</th> <th>Processing Rules</th>
+  </tr>
+  <tr>
+    <td>Id</td> <td>int</td> <td>Id</td> <td>int</td> <td>None</td>
+  </tr>
+  <tr>
+    <td>Name</td> <td>string</td> <td>Name</td> <td>string</td> <td>None</td>
+  </tr>
+</table>
+
+Only 1 mapping is defined for the operation because the initial call to the Product System does not take any parameter arguments.
+
+Architecturally, each set of mappings is implemented as a class which helps to make them maintainable and testable.
 
     public class GetProductsProcessMappings
     {
