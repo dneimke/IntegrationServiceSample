@@ -2,7 +2,6 @@
 using Company.IntegrationService.Contracts.DataContracts;
 using Company.IntegrationService.Contracts.MessageContracts;
 using Company.LOB.LoanManagement.Entities;
-using Company.IntegrationService.Mappings.Loans;
 
 namespace Company.IntegrationService.ProcessComponents.Loans
 {

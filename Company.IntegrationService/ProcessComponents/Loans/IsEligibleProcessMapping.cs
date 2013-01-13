@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Company.LOB.LoanManagement.Entities;
-using Company.IntegrationService.Contracts.DataContracts;
+﻿using Company.IntegrationService.Contracts.DataContracts;
 using Company.IntegrationService.Contracts.MessageContracts;
-using Company.IntegrationService.Mappings.Loans;
+using Company.LOB.LoanManagement.Entities;
 
 namespace Company.IntegrationService.ProcessComponents.Loans
 {
