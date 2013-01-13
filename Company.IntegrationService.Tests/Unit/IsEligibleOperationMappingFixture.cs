@@ -26,7 +26,7 @@ namespace Company.IntegrationService.Tests.Unit
             };
 
             // Act
-            var result = mappings.ApplicantToCustomerAccountMap.Map(request.Applicant);
+            var result = mappings.MapFromApplicantToCustomerAccount(request.Applicant);
         
             // Assert
             Assert.AreEqual("Fred", result.Name);
@@ -37,7 +37,7 @@ namespace Company.IntegrationService.Tests.Unit
         public void ShouldCreateIsEligibleResponseFromBooleanResult()
         {
             // Act
-            var result = mappings.BooleanToIsEligibleResponseMap.Map(true);
+            var result = mappings.MapFromBoolToIsEligibleResponse(true);
 
             // Assert
             Assert.AreEqual(true, result.Eligible);

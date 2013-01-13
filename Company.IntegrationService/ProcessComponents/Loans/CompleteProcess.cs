@@ -19,10 +19,10 @@ namespace Company.IntegrationService.ProcessComponents.Loans
 
         public CompleteResponse Process(CompleteRequest request)
         {
-            var customerLoans = mappings.CompleteRequestToCustomerLoansMap.Map(request);
+            var customerLoans = mappings.CreateCustomerLoansFromCompleteRequest(request);
             var result = loansClient.Upload(customerLoans);
 
-            var response = mappings.CompleteResponseFromInputsMap.Map(request, result);
+            var response = mappings.CreateCompleteResponseFromInputs(request, result);
             return response;
         }
     }

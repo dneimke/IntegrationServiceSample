@@ -28,7 +28,7 @@ namespace Company.IntegrationService.ProcessComponents.Loans
 
             var productList = productsClient.GetAllProducts();
 
-            var productNames = mappings.ProductIdentifierListToProductNameListMap.Map(productList);
+            var productNames = mappings.MapFromProductIdentifierListToProductNameList(productList);
 
             ApplyFilterClause(request, productNames);
 

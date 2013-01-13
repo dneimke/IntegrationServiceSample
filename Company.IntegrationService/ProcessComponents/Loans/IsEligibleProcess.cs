@@ -22,9 +22,9 @@ namespace Company.IntegrationService.ProcessComponents.Loans
 
         public IsEligibleResponse Process(IsEligibleRequest request)
         {
-            var customerAccount = mappings.ApplicantToCustomerAccountMap.Map(request.Applicant);
+            var customerAccount = mappings.MapFromApplicantToCustomerAccount(request.Applicant);
             var result = loansClient.IsEligible(request.Product.Name, customerAccount);
-            return mappings.BooleanToIsEligibleResponseMap.Map(result);
+            return mappings.MapFromBoolToIsEligibleResponse(result);
         }
     }
 }

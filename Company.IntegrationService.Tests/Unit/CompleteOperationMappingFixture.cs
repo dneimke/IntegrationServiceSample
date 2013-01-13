@@ -26,7 +26,7 @@ namespace Company.IntegrationService.Tests.Unit
             };
 
             // Act
-            var result = mappings.CompleteRequestToCustomerLoansMap.Map(request);
+            var result = mappings.CreateCustomerLoansFromCompleteRequest(request);
         
             // Assert
             Assert.AreEqual("Fred", result.Customer.Name);
