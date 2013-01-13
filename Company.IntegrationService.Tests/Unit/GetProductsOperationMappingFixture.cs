@@ -4,7 +4,7 @@ using Company.IntegrationService.ProcessComponents.Loans;
 using System.Collections.Generic;
 using Company.LOB.ProductManagement.Entities;
 
-namespace Company.IntegrationService.BusinessLayer.Tests.Unit
+namespace Company.IntegrationService.Tests.Unit
 {
     [TestClass]
     public class GetProductsOperationMappingFixture

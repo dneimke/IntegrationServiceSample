@@ -35,7 +35,7 @@ namespace Company.IntegrationService.ProcessComponents.Loans
         /// <param name="request">The initial request</param>
         /// <param name="loanNumber">A loan number domain entity from the LoanManagement domain</param>
         /// <returns></returns>
-        public CompleteResponse PrepareResponseType(CompleteRequest request, LoanNumber loanNumber)
+        public CompleteResponse CreateCompleteResponseFromInputs(CompleteRequest request, LoanNumber loanNumber)
         {
             return new CompleteResponse
             {
