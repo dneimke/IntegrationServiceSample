@@ -81,6 +81,12 @@ In its complete form, this is be represented by the following contract specifcat
 
 ## Mapping Data between systems
 
+Mappers provide a way to have communications between two subsystems that still need to stay ignorant of each other. [Fowler] [1] 
+
+In the case of this appilication, the Mapping layer provides the mapping that allows us to separate the IntegrationService from any domain objects that are exposed through the BusinessLayer.  This is done by sharing the data and message contracts between the business layer and the Services layer.
+
+The pattern for communication layer and the business layer is established via the IProcessRequestComponent interface which takes a Message contract in, and returns a processed result as a Message contract.
+
 In designing the communications protocol, the next step is to trace the data from the request, through to the back end system, and then back out through the response - a complete data roundtrip so to speak.
 
 ![Mapping strategy](https://github.com/dneimke/IntegrationServiceSample/raw/master/Mapping.PNG)
@@ -224,3 +230,6 @@ The following implementation of this interface exists for the GetProducts operat
 This implementation class implements the correct signature of Request->Reponse types, it receives its dependencies via dependency injection, and it then processes the operation behind the Process method of the interface.
 
 ## Dependency Management
+
+
+[1]: http://martinfowler.com/eaaCatalog/mapper.html        "Martin Fowler, P of EAA Catalog: Mapper"
