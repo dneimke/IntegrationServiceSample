@@ -125,9 +125,49 @@ Only 1 mapping is defined for the operation shown because the initial call to th
 
 Architecturally, each Mapping is implemented as a class which helps to make them easier to maintain and test.  The Mapping classes inherit from an abstract base class which handles the underlying infrastructure for wiring up the mapping:
 
+    public abstract class MappingBase<TIn, TOut>
+    {
+        private Func<TIn, TOut> _mapper;
+        public Func<TIn, TOut> Mapper
+        {
+            private get
+            {
+                if (this._mapper == null)
+                    return this.Default;
 
-This leaves only the specific mapping functionality to be defined in each specific mapping class 
+                return _mapper;
+            }
+            set
+            {
+                this._mapper = value;
+            }
+        }
 
+        public TOut Map(TIn input)
+        {
+            return Mapper(input);
+        }
+
+        protected abstract TOut Default(TIn input);
+    }
+
+This leaves only the specific mapping functionality to be defined in each specific mapping class.
+
+    public class SpecificMappingA : MappingBase<int, string>
+    {
+        protected override string Default(int input)
+        {
+            return input.ToString();
+        }
+    }
+
+    public class SpecificMappingB : MappingBase<string, int>
+    {
+        protected override int Default(string input)
+        {
+            return int.Parse(input);
+        }
+    }
 
 The Mapping classes are organised withing a namespace and class name structure that is designed to make them easy to find and thus improves the overall maintainability of the system.
 
