@@ -3,35 +3,27 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Company.IntegrationService.ProcessComponents.Loans;
 using System.Collections.Generic;
 using Company.LOB.ProductManagement.Entities;
+using Company.IntegrationService.Mappings.Loans;
 
 namespace Company.IntegrationService.Tests.Unit
 {
     [TestClass]
-    public class GetProductsOperationMappingFixture
+    public class GetProductsProcessMappingFixture
     {
-        GetProductsProcessMappings mappings;
-
-        [TestInitialize]
-        public void Setup()
-        {
-            mappings = new GetProductsProcessMappings();
-        }
-
         [TestMethod]
         public void ShouldMapFromProductIdentifierListToProductNameList()
         {
             // Arrange
-            var request = new List<ProductIdentifier>
+            var input = new List<ProductIdentifier>
             {
                 new ProductIdentifier { Id = 1, Name = "First" }
             };
 
             // Act
-            var result = mappings.MapFromProductIdentifierListToProductNameList(request);
-        
+            var result = new GetProductsOutput().Map(input);
+            
             // Assert
-            Assert.AreEqual("First", result[0].Name);
-            Assert.AreEqual(1, result[0].Id);
+            Assert.IsNotNull(result);
         }
     }
 }

@@ -41,13 +41,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationBootstrapper.cs" />
-    <Compile Include="ProcessComponents\Loans\CompleteProcessMappings.cs">
+    <Compile Include="Mappings\MappingFunction.cs" />
+    <Compile Include="Mappings\Loans\CompleteProcessMappings.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ProcessComponents\Loans\GetProductsProcessMappings.cs">
+    <Compile Include="Mappings\Loans\GetProductsProcessMappings.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ProcessComponents\Loans\IsEligibleProcessMapping.cs" />
+    <Compile Include="Mappings\Loans\IsEligibleProcessMapping.cs" />
     <Compile Include="ProcessComponents\Loans\IsEligibleProcess.cs" />
     <Compile Include="ProcessComponents\Loans\CompleteProcess.cs" />
     <Compile Include="ProcessComponents\Loans\GetProductsProcess.cs" />

@@ -3,14 +3,14 @@ using Company.IntegrationService.Contracts.MessageContracts;
 using Company.LOB.ProductManagement.Client;
 using Company.IntegrationService.Contracts.DataContracts;
 using System.Collections.Generic;
+using Company.IntegrationService.Mappings.Loans;
 
 namespace Company.IntegrationService.ProcessComponents.Loans
 {
     public class GetProductsProcess : IProcessComponent<GetProductsRequest, GetProductsResponse>
     {
         private readonly IProductsClientProxy productsClient = null;
-        private readonly GetProductsProcessMappings mappings = new GetProductsProcessMappings();
-
+        
         public GetProductsProcess(IProductsClientProxy products)
         {
             if (products == null)
@@ -28,18 +28,18 @@ namespace Company.IntegrationService.ProcessComponents.Loans
 
             var productList = productsClient.GetAllProducts();
 
-            var productNames = mappings.MapFromProductIdentifierListToProductNameList(productList);
+            var productNames = new GetProductsOutput().Map(productList);
 
-            ApplyFilterClause(request, productNames);
+            ApplyFilterClause(productNames, request.Filter);
 
             response.ProductNames = productNames;
             
             return response;
         }
 
-        private static void ApplyFilterClause(GetProductsRequest request, IList<ProductName> productNames)
+        private static void ApplyFilterClause(IList<ProductName> productNames, ProductFilterClause clause)
         {
-            if (request.Filter == ProductFilterClause.Some)
+            if (clause == ProductFilterClause.Some)
             {
                 // A silly business rule to highlight something we might do as a step...
                 // randomly remove the first product name is ProductFilterClause.Some was selected

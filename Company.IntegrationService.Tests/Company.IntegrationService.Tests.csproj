@@ -46,9 +46,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Unit\CompleteOperationMappingFixture.cs" />
-    <Compile Include="Unit\IsEligibleOperationMappingFixture.cs" />
-    <Compile Include="Unit\GetProductsOperationMappingFixture.cs" />
+    <Compile Include="Unit\CompleteMappingFixture.cs" />
+    <Compile Include="Unit\IsEligibleProcessMappingFixture.cs" />
+    <Compile Include="Unit\GetProductsProcessMappingFixture.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Company.IntegrationService\Company.IntegrationService.csproj">

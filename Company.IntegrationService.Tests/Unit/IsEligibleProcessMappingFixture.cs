@@ -1,35 +1,28 @@
 ﻿using Company.IntegrationService.Contracts.MessageContracts;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Company.IntegrationService.ProcessComponents.Loans;
+using Company.IntegrationService.Mappings.Loans;
 
 namespace Company.IntegrationService.Tests.Unit
 {
     [TestClass]
-    public class IsEligibleOperationMappingFixture
+    public class IsEligibleProcessMappingFixture
     {
-        IsEligibleProcessMappings mappings;
-
-        [TestInitialize]
-        public void Setup()
-        {
-            mappings = new IsEligibleProcessMappings();
-        }
-
         [TestMethod]
         public void ShouldMapFromApplicantToCustomerAccount()
         {
             // Arrange
-            var request = new CompleteRequest
+            var input = new CompleteRequest
             {
                 Applicant = new Contracts.DataContracts.Applicant { Name = "Fred" },
                 ShouldSucceed = true
             };
 
             // Act
-            var result = mappings.MapFromApplicantToCustomerAccount(request.Applicant);
+            var result = new IsEligibleInput().Map(input.Applicant);
         
             // Assert
-            Assert.AreEqual("Fred", result.Name);
+            Assert.IsNotNull(result);
         }
 
 
@@ -37,10 +30,10 @@ namespace Company.IntegrationService.Tests.Unit
         public void ShouldCreateIsEligibleResponseFromBooleanResult()
         {
             // Act
-            var result = mappings.MapFromBoolToIsEligibleResponse(true);
+            var result = new IsEligibleOutput().Map(true);
 
             // Assert
-            Assert.AreEqual(true, result.Eligible);
+            Assert.IsNotNull(result);
         }
     }
 }

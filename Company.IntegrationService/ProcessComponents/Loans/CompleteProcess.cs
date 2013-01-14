@@ -1,14 +1,14 @@
 ﻿using System;
 using Company.IntegrationService.Contracts.MessageContracts;
 using Company.LOB.LoanManagement.Client;
+using Company.IntegrationService.Mappings.Loans;
 
 namespace Company.IntegrationService.ProcessComponents.Loans
 {
     public class CompleteProcess : IProcessComponent<CompleteRequest, CompleteResponse>
     {
         private readonly ILoansClientProxy loansClient = null;
-        private readonly CompleteProcessMappings mappings = new CompleteProcessMappings();
-
+        
         public CompleteProcess(ILoansClientProxy loansClient)
         {
             if (loansClient == null)
@@ -19,10 +19,10 @@ namespace Company.IntegrationService.ProcessComponents.Loans
 
         public CompleteResponse Process(CompleteRequest request)
         {
-            var customerLoans = mappings.CreateCustomerLoansFromCompleteRequest(request);
+            var customerLoans = new GetCustomerLoansInput().Map(request);
             var result = loansClient.Upload(customerLoans);
 
-            var response = mappings.CreateCompleteResponseFromInputs(request, result);
+            var response = new GetCustomerLoansOutput().Map(request, result);
             return response;
         }
     }
