@@ -1,6 +1,11 @@
 #IntegrationServiceSample
 
+A .NET reference architecture for how to create a home-spun integration services layer with a of providing a good enough reference for how to separate systems when building an integration hub within your enterprise.
+
+## TOC
+
 * <a href="#overview">Overview</a>
+* <a href="#architecture">Architecture</a>
 * <a href="#service-operations">Service Operations</a>
 * <a href="#data-contracts">Data Contracts</a>
 * <a href="#mapping">Mapping</a></li>
@@ -9,15 +14,14 @@
 * <a href="#fault-management">Fault Management</a>
 * <a href="#dependency-management">Dependency Management</a>
 
-A .NET reference architecture for how to create a home-spun integration services layer.  
+## Overview
 
-The goal is to provide a good enough reference for how to separate systems when building an integration hub within your enterprise.
+The design goals of the Integration Service are to:
 
-The project demonstrates:
+* Provide an interface which provides 'process integration' between CRM and existing LOB applications.  The purpose of this is to reduce the complexity of service interactions.
+* Help reduce versioning conflicts by forcing all communication through schema and contracts which are designed solely for the purpose of integration and thus preventing tight coupling between individual systems.  Part of this would come under the 'Boundaries are Explicit' core tenet of SOA.
+* Design the system in such a way that it is easy to test to help ensure that risks associated with change and release management can be minimized.
 
-* Separation of concerns
-* Mapping layers
-* Highly maintainable and testable architecture
 
 ## Architecture
 
@@ -29,13 +33,6 @@ The architecture is separated out into 3 primary domains
 
 ![System dependencies](https://github.com/dneimke/IntegrationServiceSample/raw/master/DependencyDiagram.PNG)
 
-## Overview
-
-The design goals of the Integration Service are to:
-
-* Provide an interface which provides 'process integration' between CRM and existing LOB applications.  The purpose of this is to reduce the complexity of service interactions.
-* Help reduce versioning conflicts by forcing all communication through schema and contracts which are designed solely for the purpose of integration and thus preventing tight coupling between individual systems.  Part of this would come under the 'Boundaries are Explicit' core tenet of SOA.
-* Design the system in such a way that it is easy to test to help ensure that risks associated with change and release management can be minimized.
 
 ## Service Operations
 
