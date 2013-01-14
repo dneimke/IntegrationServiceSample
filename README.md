@@ -211,7 +211,13 @@ The following implementation of this interface exists for the GetProducts operat
 
 This implementation class implements the correct signature of Request->Reponse types, it receives its dependencies via dependency injection, and it then processes the operation behind the Process method of the interface.
 
+## Testing Approach
+
+
 ## Dependency Management
+
+
+
 
 
 [1]: http://martinfowler.com/eaaCatalog/mapper.html        "Martin Fowler, P of EAA Catalog: Mapper"
