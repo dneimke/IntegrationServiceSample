@@ -17,14 +17,9 @@ namespace Company.IntegrationService.Mappings.Loans
             return new CustomerLoans
             {
                 Customer = new CustomerAccount { Name = input.Applicant.Name, Id = 1 },
-                Loans = new List<Loan>
-                    {
-                        new Loan
-                        {
-                            Id = 1,
-                            LoanType = LoanType.A
-                        }
-                    }
+                Loans = new List<Loan> {
+                    new Loan { Id = 1, LoanType = LoanType.A }
+                }
             };
         }
     }

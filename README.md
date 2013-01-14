@@ -13,6 +13,7 @@ A .NET reference architecture for creating a home-spun integration services laye
 * <a href="#testing-approach">Testing Approach</a>
 * <a href="#fault-management">Fault Management</a>
 * <a href="#dependency-management">Dependency Management</a>
+* <a href="#developer-recipes">Developer Recipes</a>
 
 ## Overview
 
@@ -188,12 +189,10 @@ All exceptions are passed up through the application as IntegrationException typ
 * MappingException - Exceptions which are thrown from within custom Mapping classes - e.g. where a translation rule within a Mapping class cannot be run because a specific rule is violated
 * CommunicationException - Exceptions which are thrown as a result of a failed interaction with a remote process or external system - e.g. a database call, filesystem operation, or web service invocation 
 
-FaultExceptioons 
-
 ## Dependency Management
 
 
-
+## Developer Recipes
 
 
 [1]: http://martinfowler.com/eaaCatalog/mapper.html        "Martin Fowler, P of EAA Catalog: Mapper"
