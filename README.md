@@ -1,6 +1,6 @@
 #IntegrationServiceSample
 
-A .NET reference architecture for how to create a home-spun integration services layer with a of providing a good enough reference for how to separate systems when building an integration hub within your enterprise.
+A .NET reference architecture for creating a home-spun integration services layer with a of providing a good enough reference for how to separate systems when building an integration hub within your enterprise.
 
 ## TOC
 
