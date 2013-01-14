@@ -123,62 +123,24 @@ At the integration boundaries, every piece of data must be uniquely mapped accor
 
 Only 1 mapping is defined for the operation shown because the initial call to the Product System does not take any parameter arguments.
 
-Architecturally, each set of mappings is implemented as a class which helps to make them easier to maintain and test.
+Architecturally, each Mapping is implemented as a class which helps to make them easier to maintain and test.  The Mapping classes inherit from an abstract base class which handles the underlying infrastructure for wiring up the mapping:
 
-    public class GetProductsProcessMappings
-    {
-        /// <summary>
-        /// Maps from an <see cref="IEnumerable"/> of Product Management <see cref="ProductIdentifier"/> 
-        /// to an <see cref="IList"/> of <see cref="ProductName"/> items.
-        /// </summary>
-        /// <param name="productList">An <see cref="IEnumerable"/> of Product Management 
-        /// <see cref="ProductIdentifier"/> items to map from
-        /// </param>
-        /// <returns>An <see cref="IList"/> of <see cref="ProductName"/> data contract types.</returns>
-        public IList<DC.ProductName> MapFromProductIdentifierListToProductNameList(IEnumerable<ProductIdentifier> productList)
-        {
-            var response = new GetProductsResponse();
-            var productNames = from p in productList 
-                               select new DC.ProductName { Id = p.Id, Name = p.Name };
-            return productNames.ToList();
-        }
-    }
 
-In the case of the above mapping, it is a straight mapping from both name and data type - but there might be other filters, lookups, translations, agreed defaults, etc. that need to be catered for to correctly implement integration.
+This leaves only the specific mapping functionality to be defined in each specific mapping class 
 
-Each Mappings class is then tested against agreed translation and processing rules.  
 
-In the reference sample, there is one test Fixture for each Mappings class, but this may be further refined to one Fixture per mapping rule.
+The Mapping classes are organised withing a namespace and class name structure that is designed to make them easy to find and thus improves the overall maintainability of the system.
 
-    [TestClass]
-    public class GetProductsOperationMappingFixture
-    {
-        GetProductsProcessMappings mappings;
+<pre>
+  /Mappings
+    + MappingBase.cs 
+    /ServiceName
+      + LookupOperation.cs
+         - public class LookupOperation<TIn, TOut> : MappingBase<TIn, TOut>
+         - public class LookupOperation<TOut, TIn> : MappingBase<TOut, TIn>
+</pre>
 
-        [TestInitialize]
-        public void Setup()
-        {
-            mappings = new GetProductsProcessMappings();
-        }
-
-        [TestMethod]
-        public void ShouldMapFromProductIdentifierListToProductNameList()
-        {
-            // Arrange
-            var request = new List<ProductIdentifier>
-            {
-                new ProductIdentifier { Id = 1, Name = "First" }
-            };
-
-            // Act
-            var result = mappings.MapFromProductIdentifierListToProductNameList(request);
-        
-            // Assert
-            Assert.AreEqual("First", result[0].Name);
-            Assert.AreEqual(1, result[0].Id);
-        }
-    }
-
+Each Mappings class is then tested against agreed translation and processing rules.  In the case of the above mapping, it is a straight mapping from both name and data type - but there might be other filters, lookups, translations, agreed defaults, etc. that need to be catered for to correctly implement integration.
 
 ## Integration Process Components
 
