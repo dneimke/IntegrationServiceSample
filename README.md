@@ -133,7 +133,7 @@ This leaves only the specific mapping functionality to be defined in each specif
 
     public class GetProductsOutput : MappingFunction<ProductIdentifier, ProductName>
     {
-        protected override int Default(string input)
+        protected override ProductName Default(ProductIdentifier input)
         {
             // mapping implementation abbreviated
         }
