@@ -126,30 +126,8 @@ Only 1 mapping is defined for the operation shown because the initial call to th
 Architecturally, each Mapping is implemented as a class which helps to make them easier to maintain and test.  The Mapping classes inherit from an abstract base class which handles the underlying infrastructure for wiring up the mapping:
 
     public abstract class MappingFunction<TIn, TOut>
-    {
-        private Func<TIn, TOut> _mapper;
-        public Func<TIn, TOut> Mapper
-        {
-            private get
-            {
-                if (this._mapper == null)
-                    return this.Default;
 
-                return _mapper;
-            }
-            set
-            {
-                this._mapper = value;
-            }
-        }
-
-        public TOut Map(TIn input)
-        {
-            return Mapper(input);
-        }
-
-        protected abstract TOut Default(TIn input);
-    }
+<a href="https://github.com/dneimke/IntegrationServiceSample/blob/master/Company.IntegrationService/Mappings/MappingFunction.cs">Click here</a> to view the actual implementation of the MappingFunction base class.    
 
 This leaves only the specific mapping functionality to be defined in each specific mapping class.
 
