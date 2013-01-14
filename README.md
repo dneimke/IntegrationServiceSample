@@ -173,7 +173,7 @@ The Mapping classes are organised withing a namespace and class name structure t
 
 <pre>
   /Mappings
-    + MappingBase.cs 
+    + MappingFunction.cs 
     /ServiceName
       + LookupOperation.cs
          - public class LookupOperation&lt;TIn, TOut> : MappingBase&lt;TIn, TOut>
