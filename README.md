@@ -153,19 +153,11 @@ Architecturally, each Mapping is implemented as a class which helps to make them
 
 This leaves only the specific mapping functionality to be defined in each specific mapping class.
 
-    public class LookupOperationInput : MappingFunction<int, string>
-    {
-        protected override string Default(int input)
-        {
-            return input.ToString();
-        }
-    }
-
-    public class LookupOperationOutput : MappingFunction<string, int>
+    public class GetProductsOutput : MappingFunction<ProductIdentifier, ProductName>
     {
         protected override int Default(string input)
         {
-            return int.Parse(input);
+            // mapping implementation abbreviated
         }
     }
 
@@ -180,6 +172,8 @@ The Mapping classes are organised withing a namespace and class name structure t
          - public class LookupOperationInput : MappingFunction&lt;TIn, TOut>
          - public class LookupOperationOutput : MappingFunction&lt;TOut, TIn>
 </pre>
+
+The class ProcessNameMappings would infer the name of the underlying process class that it provides mappings for - in the case of this example it would be GetProductsProcessMappings.cs.  This file contains a class for each mapping that is required by the process. 
 
 Each Mappings class is then tested against agreed translation and processing rules.  In the case of the above mapping, it is a straight mapping from both name and data type - but there might be other filters, lookups, translations, agreed defaults, etc. that need to be catered for to correctly implement integration.
 
