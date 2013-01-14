@@ -161,6 +161,11 @@ This leaves only the specific mapping functionality to be defined in each specif
         }
     }
 
+<a href="https://github.com/dneimke/IntegrationServiceSample/tree/master/Company.IntegrationService/Mappings">Click here</a> to view mapping classes as they have been implemented in the project.
+
+<a href="https://github.com/dneimke/IntegrationServiceSample/blob/master/Company.IntegrationService/ProcessComponents/Loans/IsEligibleProcess.cs">Click here</a> to view how the process componets consume mapping classes in the project.
+
+
 The Mapping classes are organised withing a namespace and class name structure that is designed to make them easy to find and thus improves the overall maintainability of the system.
 
 <pre>
