@@ -1,5 +1,14 @@
 #IntegrationServiceSample
 
+* <a href="#Overview">Overview</a>
+* <a href="#Service-Operations">Service Operations</a>
+* <a href="#Data-Contracts">Data Contracts</a>
+* <a href="#Mapping">Mapping</a>
+* <a href="#Integration-Process-Components">Integration Process Components</a>
+* <a href="#Testing-Approach">Testing Approach</a>
+* <a href="#Fault-Management">Fault Management</a>
+* <a href="#Dependency-Management">Dependency Management</a>
+
 A .NET reference architecture for how to create a home-spun integration services layer.  
 
 The goal is to provide a good enough reference for how to separate systems when building an integration hub within your enterprise.
@@ -20,7 +29,7 @@ The architecture is separated out into 3 primary domains
 
 ![System dependencies](https://github.com/dneimke/IntegrationServiceSample/raw/master/DependencyDiagram.PNG)
 
-## Design Goals
+## Overview
 
 The design goals of the Integration Service are to:
 
@@ -28,7 +37,7 @@ The design goals of the Integration Service are to:
 * Help reduce versioning conflicts by forcing all communication through schema and contracts which are designed solely for the purpose of integration and thus preventing tight coupling between individual systems.  Part of this would come under the 'Boundaries are Explicit' core tenet of SOA.
 * Design the system in such a way that it is easy to test to help ensure that risks associated with change and release management can be minimized.
 
-## How Service Operations are formed
+## Service Operations
 
 When designing an integration service, the first step is to clearly identify and to document all of the individual points where integration will take place.  This is usually achieved by sitting down with business analysts and the architects of the systems that you will be integrating and to discuss the nature of the interaction and to ultimately, design and agree on a set of data contracts to which the interaction will conform.
 
@@ -37,7 +46,7 @@ In our example, this might be initiated by an engineer on the CRM team saying th
 At this point, you have your first operation, let's call this operation 'GetProducts'.
 
 
-## Designing and Implementing Data Contracts
+## Data Contracts
 
 Agreements must be made about the data to be exchanged in order to to fulfil the requirements of the request  from the CRM system.  In the sample, it has been agreed that the request from the CRM system can specify a filter clause to specify what types of records it wants returned.  
 
@@ -79,7 +88,7 @@ In its complete form, this is be represented by the following contract specifcat
     GetProductsResponse GetProducts(GetProductsRequest request);
 
 
-## Mapping Data between systems
+## Mapping
 
 Mappers provide a way to have communications between two subsystems that still need to stay ignorant of each other. [Fowler] [1] 
 
@@ -174,7 +183,7 @@ In the reference sample, there is one test Fixture for each Mappings class, but 
     }
 
 
-## Designing and Implementing Integration Processes
+## Integration Process Components
 
 Each individual integration process is implemented as a class which helps to make them easier to maintain and test.  The responsibilities of an integration process class are:
 
