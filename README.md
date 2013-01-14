@@ -136,8 +136,8 @@ The Mapping classes are organised withing a namespace and class name structure t
     + MappingBase.cs 
     /ServiceName
       + LookupOperation.cs
-         - public class LookupOperation<TIn, TOut> : MappingBase<TIn, TOut>
-         - public class LookupOperation<TOut, TIn> : MappingBase<TOut, TIn>
+         - public class LookupOperation&lt;TIn, TOut> : MappingBase&lt;TIn, TOut>
+         - public class LookupOperation&lt;TOut, TIn> : MappingBase&lt;TOut, TIn>
 </pre>
 
 Each Mappings class is then tested against agreed translation and processing rules.  In the case of the above mapping, it is a straight mapping from both name and data type - but there might be other filters, lookups, translations, agreed defaults, etc. that need to be catered for to correctly implement integration.
