@@ -41,6 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationBootstrapper.cs" />
+    <Compile Include="Exceptions\CommunicationException.cs" />
+    <Compile Include="Exceptions\IntegrationException.cs" />
+    <Compile Include="Exceptions\MappingException.cs" />
+    <Compile Include="Exceptions\ProcessException.cs" />
     <Compile Include="Mappings\MappingFunction.cs" />
     <Compile Include="Mappings\Loans\CompleteProcessMappings.cs">
       <SubType>Code</SubType>

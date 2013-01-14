@@ -27,7 +27,7 @@ namespace Company.IntegrationService.Tests.Unit
 
 
         [TestMethod]
-        public void ShouldCreateIsEligibleResponseFromBooleanResult()
+        public void ShouldMapFromBooleanToIsEligibleResponse()
         {
             // Act
             var result = new IsEligibleOutputMapper().Map(true);
