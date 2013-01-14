@@ -10,7 +10,7 @@ namespace Company.IntegrationService.Mappings.Loans
     /// </summary>
     /// <param name="applicant">An <see cref="Applicant"/> data contract to map from</param>
     /// <returns>The <see cref="CustomerAccount"/> Loan Management entity to return</returns>
-    public class IsEligibleInput : MappingFunction<Applicant, CustomerAccount>
+    public class IsEligibleInputMapper : MappingFunction<Applicant, CustomerAccount>
     {
 
         protected override CustomerAccount Default(Applicant input)
@@ -25,7 +25,7 @@ namespace Company.IntegrationService.Mappings.Loans
     /// </summary>
     /// <param name="isEligible">True if the <see cref="Applicant"/> is eligible for a loan</param>
     /// <returns>The <see cref="IsEligibleResponse"/> data contract type to return.</returns>
-    public class IsEligibleOutput : MappingFunction<bool, IsEligibleResponse>
+    public class IsEligibleOutputMapper : MappingFunction<bool, IsEligibleResponse>
     {
 
         protected override IsEligibleResponse Default(bool output)

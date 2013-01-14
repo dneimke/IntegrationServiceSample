@@ -19,7 +19,7 @@ namespace Company.IntegrationService.Tests.Unit
             };
 
             // Act
-            var result = new IsEligibleInput().Map(input.Applicant);
+            var result = new IsEligibleInputMapper().Map(input.Applicant);
         
             // Assert
             Assert.IsNotNull(result);
@@ -30,7 +30,7 @@ namespace Company.IntegrationService.Tests.Unit
         public void ShouldCreateIsEligibleResponseFromBooleanResult()
         {
             // Act
-            var result = new IsEligibleOutput().Map(true);
+            var result = new IsEligibleOutputMapper().Map(true);
 
             // Assert
             Assert.IsNotNull(result);

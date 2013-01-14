@@ -10,7 +10,7 @@ namespace Company.IntegrationService.Mappings.Loans
     /// </summary>
     /// <param name="request">The CompleteRequest input value</param>
     /// <returns>A valid CustomerLoans instance</returns>
-    public class GetCustomerLoansInput : MappingFunction<CompleteRequest, CustomerLoans>
+    public class GetCustomerLoansInputMapper : MappingFunction<CompleteRequest, CustomerLoans>
     {
 
         protected override CustomerLoans Default(CompleteRequest input)
@@ -38,7 +38,7 @@ namespace Company.IntegrationService.Mappings.Loans
     /// <param name="loanNumber">A loan number domain entity from the LoanManagement domain</param>
     /// <returns></returns>
     /// 
-    public class GetCustomerLoansOutput : MappingFunction<CompleteRequest, LoanNumber, CompleteResponse>
+    public class GetCustomerLoansOutputMapper : MappingFunction<CompleteRequest, LoanNumber, CompleteResponse>
     {
 
         protected override CompleteResponse Default(CompleteRequest request, LoanNumber loanNumber)

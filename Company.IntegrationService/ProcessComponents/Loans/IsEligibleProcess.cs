@@ -21,9 +21,9 @@ namespace Company.IntegrationService.ProcessComponents.Loans
 
         public IsEligibleResponse Process(IsEligibleRequest request)
         {
-            var customerAccount = new IsEligibleInput().Map(request.Applicant);
+            var customerAccount = new IsEligibleInputMapper().Map(request.Applicant);
             var result = loansClient.IsEligible(request.Product.Name, customerAccount);
-            return new IsEligibleOutput().Map(result);
+            return new IsEligibleOutputMapper().Map(result);
         }
     }
 }

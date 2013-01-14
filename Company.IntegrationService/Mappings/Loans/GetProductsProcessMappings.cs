@@ -14,7 +14,7 @@ namespace Company.IntegrationService.Mappings.Loans
     /// <see cref="ProductIdentifier"/> items to map from
     /// </param>
     /// <returns>An <see cref="IList"/> of <see cref="ProductName"/> data contract types.</returns>
-    public class GetProductsOutput : MappingFunction<IEnumerable<ProductIdentifier>, IList<DC.ProductName>>
+    public class GetProductsOutputMapper : MappingFunction<IEnumerable<ProductIdentifier>, IList<DC.ProductName>>
     {
 
         protected override IList<DC.ProductName> Default(IEnumerable<ProductIdentifier> input)

@@ -20,7 +20,7 @@ namespace Company.IntegrationService.Tests.Unit
             };
 
             // Act
-            var result = new GetCustomerLoansInput().Map(input);
+            var result = new GetCustomerLoansInputMapper().Map(input);
         
             // Assert
             Assert.IsNotNull(result);
@@ -43,7 +43,7 @@ namespace Company.IntegrationService.Tests.Unit
             };
 
             // Act
-            var result = new GetCustomerLoansOutput().Map(request, loanNumber);
+            var result = new GetCustomerLoansOutputMapper().Map(request, loanNumber);
 
             // Assert
             Assert.IsNotNull(result);

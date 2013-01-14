@@ -20,7 +20,7 @@ namespace Company.IntegrationService.Tests.Unit
             };
 
             // Act
-            var result = new GetProductsOutput().Map(input);
+            var result = new GetProductsOutputMapper().Map(input);
             
             // Assert
             Assert.IsNotNull(result);
