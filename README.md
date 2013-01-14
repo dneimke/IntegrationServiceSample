@@ -219,6 +219,15 @@ This implementation class implements the correct signature of Request->Reponse t
 
 ## Testing Approach
 
+## Fault Management
+
+All exceptions are passed up through the application as IntegrationException types.  There are 3 different sub-types of IntegrationException which describe specific exceptions, they are:
+
+* ProcessException - Catch all exceptions types for exceptions which are handled within IProcessComponent control flow processes and which are not of either the MappingException or CommunicationException types 
+* MappingException - Exceptions which are thrown from within custom Mapping classes - e.g. where a translation rule within a Mapping class cannot be run because a specific rule is violated
+* CommunicationException - Exceptions which are thrown as a result of a failed interaction with a remote process or external system - e.g. a database call, filesystem operation, or web service invocation 
+
+FaultExceptioons 
 
 ## Dependency Management
 
