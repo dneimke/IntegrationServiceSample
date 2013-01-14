@@ -174,25 +174,9 @@ The IProcessComponent interface is as follows:
         TOut Process(TIn request);
     }
 
-The following implementation of this interface exists for the GetProducts operation.
+<a href="https://github.com/dneimke/IntegrationServiceSample/blob/master/Company.IntegrationService/ProcessComponents/Loans/GetProductsProcess.cs">Click here</a> to view the implementation of this interface exists for the GetProducts operation.
 
-    public class GetProductsProcess : IProcessComponent<GetProductsRequest, GetProductsResponse>
-    {
-        private readonly IProductsClientProxy productsClient = null;
-        private readonly GetProductsProcessMappings mappings;
-
-        public GetProductsProcess(IProductsClientProxy products) 
-		{ 
-		    /* ctor implementation abbreviated */ 
-		}
-
-        public GetProductsResponse Process(GetProductsRequest request)
-        {
-            /* process steps abbreviated abbreviated */ 
-        }
-    }
-
-This implementation class implements the correct signature of Request->Reponse types, it receives its dependencies via dependency injection, and it then processes the operation behind the Process method of the interface.
+IProcessComponent implementations must implement the correct signature of Request->Reponse types, receive their dependencies via dependency injection, and then orchestrate the steps required by the operation.
 
 ## Testing Approach
 
