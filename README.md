@@ -1,13 +1,13 @@
 #IntegrationServiceSample
 
-* <a href="#Overview">Overview</a>
-* <a href="#Service-Operations">Service Operations</a>
-* <a href="#Data-Contracts">Data Contracts</a>
-* <a href="#Mapping">Mapping</a>
-* <a href="#Integration-Process-Components">Integration Process Components</a>
-* <a href="#Testing-Approach">Testing Approach</a>
-* <a href="#Fault-Management">Fault Management</a>
-* <a href="#Dependency-Management">Dependency Management</a>
+* <a href="#overview">Overview</a>
+* <a href="#service-operations">Service Operations</a>
+* <a href="#data-contracts">Data Contracts</a>
+* <a href="#mapping">Mapping</a></li>
+* <a href="#integration-process-components">Integration Process Components</a>
+* <a href="#testing-approach">Testing Approach</a>
+* <a href="#fault-management">Fault Management</a>
+* <a href="#dependency-management">Dependency Management</a>
 
 A .NET reference architecture for how to create a home-spun integration services layer.  
 
