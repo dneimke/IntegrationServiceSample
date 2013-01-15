@@ -132,13 +132,15 @@ Architecturally, each Mapping is implemented as a class which helps to make them
 
 This leaves only the specific mapping functionality to be defined in each specific mapping class.
 
-    public class GetProductsOutput : MappingFunction<ProductIdentifier, ProductName>
+    public class GetProductsOutputMapper : MappingFunction<ProductIdentifier, ProductName>
     {
         protected override ProductName Default(ProductIdentifier input)
         {
             // mapping implementation abbreviated
         }
     }
+
+The naming format for the Mapper class is: {Name of Action}{Direction}Mapper
 
 You can <a href="https://github.com/dneimke/IntegrationServiceSample/tree/master/Company.IntegrationService/Mappings/Loans">click here</a> to view mapping classes as they have been implemented in the project.  <a href="https://github.com/dneimke/IntegrationServiceSample/blob/master/Company.IntegrationService/ProcessComponents/Loans/IsEligibleProcess.cs">Click here</a> to view how one of the process components consumes its mapping classes in the project.
 
